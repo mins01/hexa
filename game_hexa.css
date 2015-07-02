@@ -1,0 +1,90 @@
+/* CSS Document */
+/*
+공대여자, mins01.com
+제작 : 2013-04-14
+수정 : 
+임의사용 금지!
+*/
+html,body{padding:0; margin:0; height:100%; font-size:12px;}
+
+fieldset{border:2px solid #369;font-size:12px; padding:1px; margin:1px; margin-bottom:5px;}
+legend{}
+
+.btn{ border:2px solid #999; margin:0 1px; padding:0 1px;}
+.txt_score { border-width:0px; margin:0px ;padding:0px; width:2em; margin-left:2px; text-align:center}
+.txtbox { border:1px inset #999; margin:1px ;padding:0px; text-align:center}
+.btnbox { border:1px outset #CCC; margin:1px ;padding:2px; text-align:center; background-color:#CCC; cursor:pointer;}
+.btnbox a {text-decoration: none; color:black; display:block; width:100%; height:100%;}
+.nobox{border-width:0px; margin:0px ;padding:0px; }
+
+.div_board{ border:2px solid black; padding:2px; position:relative; overflow:hidden; margin:0 auto;}
+/* 보드레이아웃 크기*/
+.div_board_5{width:204px;}
+.div_board_6{width:244px;}
+.div_board_7{width:284px;}
+
+/* 보드 기본형 */
+.board{ table-layout:fixed; border-collapse:collapse; border:2px solid #fff; margin:0 auto;}
+.blocks td{ width:40px; height:40px;}
+.blocks td div{ border:1px solid #ccc; margin:1px; height:36px; width:36px; background-color:#FFF }
+.blocks .noArea td {}
+.blocks .noArea td div{ border:1px dotted red;height:36px; width:36px;margin:1px;}
+.blocks .noView td div{border:1px dotted #fff;height:36px; width:36px;margin:1px; background-color:#FFF}
+/* 떨어지는 블럭 */
+.dropBlock{ position:absolute; margin:2px 2px; z-index:10;}
+.nextBlock{}
+.divNextBlock{position:absolute; margin:0; z-index:9; top:0px; right:-46px; border:2px solid black}
+
+/* 블럭 색*/
+.blocks td.bk_ div{border:18px outset #FFF; width:0; height:0; margin:2px; background-color:#FFF;}
+.blocks td.bk_0 div{ border-color:red;}
+.blocks td.bk_1 div{ border-color:blue ;}
+.blocks td.bk_2 div{ border-color:teal ;}
+.blocks td.bk_3 div{ border-color:olive;}
+.blocks td.bk_4 div{ border-color:fuchsia ;}
+.blocks td.bk_5 div{ border-color:maroon;}
+.blocks td.bk_r div{ background-color:#ccc;border-color:#ccc; 
+
+-webkit-transition: background-color,opacity 0.3s ease-out;
+-moz-transition: background-color,opacity 0.3s ease-out;
+-o-transition: background-color,opacity 0.3s ease-out;
+transition: background-color,opacity 0.3s ease-out;
+}
+
+/* 보드 색 */
+.table_color_0 td div
+,.table_color_0 .noArea td div{border-color:#900;}
+.table_color_0  td.bk_ div{}
+.table_color_1 td div
+,.table_color_1 .noArea td div{border-color:#090;}
+.table_color_1  td.bk_ div{border-width:8px; border-style:double ; width:20px; height:20px; margin:2px;}
+.table_color_2 td div
+,.table_color_2 .noArea td div{border-color:#009;}
+.table_color_2  td.bk_ div{border-width:18px; border-style:ridge ; width:0px; height:0px; margin:2px;}
+.table_color_3 td div
+,.table_color_3 .noArea td div{border-color:#909;}
+.table_color_3  td.bk_ div{border-width:18px;border-style:solid ; border-bottom-color:#FFF; width:0px; height:0px; margin:2px;}
+.table_color_X td div
+,.table_color_X td.bk_ div
+,.table_color_X .noArea td div{background-color:#999;}
+
+
+
+/* 레벨판, 점수판 */
+#div_level{ font-size:12px; font-weight:bold; float:left; width:50%;}
+#div_score{ font-size:12px; font-weight:bold; float:left; width:50%;}
+
+/* 컨트롤러 */
+#div_control{opacity:0.3;position:absolute; top:30%;width:100%; height:200px; display:none; z-index:100}
+#div_control input{ border:2px solid #ccc; padding:2px; margin:2px; width:60px; height:60px; line-height:20px; font-size:12px;}
+#select_scale{display:none;}
+@media all and (max-width:800px) {
+	#div_control {display:block;}
+	#select_scale{display: inline;}
+}
+
+/* 결과표 */
+#div_result{}
+.table_result{ table-layout:fixed; border-collapse:collapse; border:0px solid #fff; margin:0 auto; font-size:12px;}
+.table_result td
+, .table_result th{  padding:2px;}

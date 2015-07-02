@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+/*
+공대여자, mins01.com
+제작 : 2013-04-14
+수정 : 
+임의사용 금지!
+*/
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>헥사(HEXA)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 , minimum-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="../../web_work/js/_M.all/_M.all.js"></script>
+<link rel="stylesheet" type="text/css" href="game_hexa.css"/>
+<script type="text/javascript" src="game_hexa.js"></script>
+<script type="text/javascript">
+//<!--
+
+var qstr = document.location.search;
+qstr = qstr.replace(/^\?/,'');
+var Ps = _M.OBJECT.unserialize(qstr,true);
+
+var gh;
+function onchangescore(){
+	_M.$id('div_level').innerHTML = 'Lv.'+gh.level;
+	_M.$id('div_score').innerHTML = gh.score+'['+gh.scoreTds+']';
+}
+function onstart(){
+	_M.$id('div_result').style.display="none"
+	_M.$id('div_layout').style.display=""
+}
+function ongameover(){
+	//gh.scoreBks;
+	var f = document.form_result;
+	_M.$id('div_result').style.display=""
+	_M.$id('div_layout').style.display="none"
+	var inputs = _M.$tag('input',_M.$id('div_result'));
+	for(var i=0,m=gh.scoreBks.length;i<m;i++){
+		inputs[i+9].value = gh.scoreBks[i];
+	}
+	f.score.value = gh.score;
+	f.level.value = gh.level;
+	f.scoreTds.value = gh.scoreTds;
+	f.date.value = _M.DATE.format('YmdHis',(new Date()));
+
+	var t = {};
+	t.scale = Ps.scale?Ps.scale:'1';
+	t.css = Ps.css?Ps.css:'';
+	f.setting.value = _M.OBJECT.serialize(t,true);
+	var t = {};
+	t.userAgent = window.navigator.userAgent;
+	f.etc.value = _M.OBJECT.serialize(t,true);
+
+
+}
+function page_scale(){
+	if(Ps.hasOwnProperty('scale')){
+		var t = Ps.scale;
+		document.writeln('<meta name="viewport" content="width=400, initial-scale='+t+', minimum-scale='+t+', maximum-scale='+t+', user-scalable=no" />');
+	}
+}
+//page_scale();
+function page_gundam(){
+	if(Ps.hasOwnProperty('css')){
+		if(Ps.css=='gundam'){
+			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_gundam.css"/>');
+		}else if(Ps.css=='number'){
+			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_number.css"/>');
+		}else if(Ps.css=='loadsign'){
+			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_loadsign.css"/>');
+		}
+	}
+}
+page_gundam();
+function page_init(){
+	var f = document.form_ctrl;
+	if(Ps.hasOwnProperty('scale')){
+		f.scale.value = Ps.scale;
+		f.css.value = Ps.css;
+	}
+}
+
+window.onload = function(){
+	page_init();
+	gh = new Game_hexa(_M.$id('div_layout'),_M.$id('table_board'),_M.$id('bkD'),_M.$id('nextBkD'),_M.$id('effsd'));
+	gh.onchangescore = onchangescore;
+	gh.onstart = onstart;
+	gh.ongameover = ongameover;
+	gh.useSound = true;
+//	gh.start();
+	shotK();
+	var t = Math.floor(Math.random()*4*4)%4;
+	gh.colorTable(t);
+}
+function shotK(){
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('LEFT',0,0,0),function(){gh.moveHBkD(0); });
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('RIGHT',0,0,0),function(){gh.moveHBkD(1); });
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('DOWN',0,0,0),function(){gh.dropBkD(); });
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('UP',0,0,0),function(){gh.chageBkD(0); });
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey(' ',0,0,0),function(){gh.dropBkD(); });
+	_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('ENTER',0,0,0),function(){gh.start(); });
+	_M.UI.SHORTCUT.start();
+}
+//-->
+</script>
+</head>
+
+<body>
+<h2 style="text-align:center; padding:0; margin:0;">헥사,HEXA [<a href="game_hexa.html" target="_blank">NEW</a>]</h2>
+<!--
+<fieldset>
+	<legend>테스트</legend>
+	<input type="button" onclick="gh.moveByBkD(0,40);" value="아래" />
+	<input type="button" onclick="gh.moveByBkD(0,-40);" value="위" />
+	<input type="button" onclick="gh.moveByBkD(-40,0);" value="왼쪽" />
+	<input type="button" onclick="gh.moveByBkD(40,0);" value="오른쪽" /><br />
+	<input type="button" onclick="gh.moveHBkD(0);" value="왼쪽" />
+	<input type="button" onclick="gh.moveHBkD(1);" value="오른쪽" />
+	<input type="button" onclick="gh.moveDownBkD(1);" value="하강" />
+	<input type="button" onclick="gh.dropBkD();" value="내리기" />
+	<input type="button" onclick="gh.chageBkD(0);" value="변경0" />
+	<input type="button" onclick="gh.chageBkD(1);" value="변경1" />
+	
+	<br />
+	
+	
+	<input type="button" onclick="gh.checkLeaveBkD();" value="체크" />
+	<input type="button" onclick="gh.start();" value="시작" />
+	
+	<input type="button" onclick="gh.resume();" value="계속" />
+	<input type="button" onclick="gh.stop();" value="멈춤" />
+	
+</fieldset>
+-->
+<!--
+<div style="position:absolute; top:0; left:0; width:320px; height:500px; background:#ccc;"></div>
+-->
+<div class="div_board div_board_6" style="border-width:0;" >
+	<form name="form_ctrl" action="" method="get">
+	<fieldset>
+		<legend><strong>HEXA</strong>
+		<input type="button" onclick="gh.start()" class="btn" value="시작" />
+<!--		<input type="button" onclick="gh.resume()" class="btn" value="resume" /> -->
+		<input  type="button" onclick="gh.gameOver()" class="btn" value="종료" />
+		<select name="css" onchange="this.form.submit();"  class="btn" style="width:40px;" >
+			<option value="">일반</option>
+			<option value="gundam">건담</option>
+			<option value="number">숫자</option>
+<!--			<option value="loadsign">교통표지판</option> -->
+			
+		</select>
+
+		<select id="select_scale" name="scale" onchange="this.form.submit();"  class="btn" style="width:60px;" >
+			<option value="1.0">안드로이드</option>
+			<option value="0.7">아이폰</option>
+			<option value="2.0">아이패드</option>
+			<option value="0.5">2배</option>
+		</select>
+		<!-- 
+		<input type="button" onclick="if(gh.initTermTimmer>100){gh.initTermTimmer-=100;gh.checkLevelup()}" class="noMPB" value="좀더빨리" />
+		<input type="button" onclick="gh.initTermTimmer+=100;gh.checkLevelup();" class="noMPB" value="좀더느리게" />
+		-->
+		</legend>
+		<div id="div_level" style="text-align:center;">##</div>
+		<div id="div_score" style="text-align:center;">##</div>
+		<div style="clear:both"></div>
+	</fieldset>	
+	</form>
+</div>
+<div id="div_layout" class="table_color_0" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="divNextBlock">
+	<table id="nextBkD" border="0" cellpadding="0" cellspacing="0" class="blocks nextBlock" style="top:0px; right:-48px">
+			<tr>
+				<td class="bk_ bk_4"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_5"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+			</tr>
+		</table>	
+		</div>
+	</div>
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;margin-top:-40px; position:relative;">
+		<table id="bkD" border="0" cellpadding="0" cellspacing="0" class="blocks dropBlock" style="top:-60px; left:80px">
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_1"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_2"><div></div></td>
+			</tr>
+		</table>
+		
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="noView">
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td class=""><div></div></td>
+			</tr>
+			<tr class="noArea">
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+				<td class=""><div></div></td>
+			</tr>
+			<tr class="noArea">
+				<td class="bk_ bk_0"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td><div></div></td>
+				<td><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_0"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+			</tr>
+			<tr>
+				<td><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+			</tr>
+			<tr>
+				<td class="bk_ bk_2"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+<div style="text-align:center; font-size:12px;">좌+우:이동, 상:변경, 하,스페이스:내리기, 엔터:시작 , <button onkeyup="return false;" class="btnbox"  style="font-size:12px; font-weight:bold"><a href="game_result.php?mode=result&amp;game=HEXA" >랭킹확인</a></button></div>
+</div>
+
+
+<!-- 결과표 -->
+<div id="div_result" class="table_color_" style="display:none;" >
+	<form name="form_result" action="game_result.php" method="post">
+	<input type="hidden" name="game" value="HEXA" />
+	<input type="hidden" name="level" value="0" />
+	<input type="hidden" name="score" value="0" />
+	<input type="hidden" name="scoreTds" value="0" />
+	<input type="hidden" name="setting" value="" />
+	<input type="hidden" name="etc" value="" />
+	<input type="hidden" name="date" value="" />
+
+	<div style="text-align:center; font-size:20px; font-weight:bold">Result</div>
+	<div style="text-align:center; font-size:20px; font-weight:bold">
+	<input type="submit" class="btnbox" style="font-size:12px" value="기록 남기기" />
+	<input type="reset" class="btnbox" style="font-size:12px" value="다시 게임하기" onclick="gh.start();" />
+
+	
+
+	</div>
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table  border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="table_color_0">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_0">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_1">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_1">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_2">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_2">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_3">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_3">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+
+		</table>
+		</div>
+	</div>
+	</form>
+</div>
+
+
+
+<!-- 컨트롤 -->
+
+
+<div id="div_control" style="" >	
+	<div  style="position:absolute; top:0; left:0;">
+		<input type="button" onclick="gh.chageBkD(0)" value="CHANGE" style="margin:0 auto;display:block;" />
+		<input type="button" onclick="gh.moveHBkD(0)" value="LEFT" style="display:block;" />
+		<input type="button" onclick="gh.dropBkD()" value="DROP" style="display:block;" />
+	</div>
+	<div  style="position:absolute; top:0; right:0;">
+		<input type="button" onclick="gh.chageBkD(1)" value="CHANGE" style="margin:0 auto; display:block;" />
+		<input type="button" onclick="gh.moveHBkD(1)" value="RIGHT" style="display:block;" />
+		<input type="button" onclick="gh.dropBkD()" value="DROP" style="display:block;" />
+	</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28167507-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

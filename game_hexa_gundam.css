@@ -1,0 +1,47 @@
+/* CSS Document */
+/*
+공대여자, mins01.com
+제작 : 2013-04-14
+수정 : 
+임의사용 금지!
+*/
+/*
+건담 이미지용
+이미지 출처 : http://gundam.netmarble.net/
+*/
+/* 블럭 색*/
+.table_color_0 td.bk_ div{border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:#FFF; background-position:80px -15px;}
+.table_color_0 td.bk_0 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10066.png"); border-color:red;}
+.table_color_0 td.bk_1 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10022.png"); background-position:80px -15px;border-color:blue ;}
+.table_color_0 td.bk_2 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10016.png");background-position:50% -55px;border-color:teal ;}
+.table_color_0 td.bk_3 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10007.png");background-position:75px -10px;border-color:olive;}
+.table_color_0 td.bk_4 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10008.png");background-position:80px -25px;border-color:fuchsia ;}
+.table_color_0 td.bk_5 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10002.png");background-position:75px -15px; border-color:maroon;}
+
+
+/* 블럭 색*/
+.table_color_1 td.bk_ div{border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:#FFF; background-position:75px -15px;}
+.table_color_1 td.bk_0 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11022.png"); border-color:red;}
+.table_color_1 td.bk_1 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11003.png"); background-position:75px -15px;border-color:blue ;}
+.table_color_1 td.bk_2 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11006.png");background-position:75px -15px;border-color:teal ;}
+.table_color_1 td.bk_3 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11008.png");background-position:80px -20px;border-color:olive;}
+.table_color_1 td.bk_4 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11010.png");background-position:80px -10px;border-color:fuchsia ;}
+.table_color_1 td.bk_5 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11018.png");background-position:85px -10px; border-color:maroon;}
+
+/* 블럭 색*/
+.table_color_2 td.bk_ div{border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:#FFF; }
+.table_color_2 td.bk_0 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11047.png");background-position:95px -15px; border-color:red;}
+.table_color_2 td.bk_1 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11054.png"); background-position:75px -20px;border-color:blue ;}
+.table_color_2 td.bk_2 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11052.png");background-position:75px -15px;border-color:teal ;}
+.table_color_2 td.bk_3 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11053.png");background-position:75px -10px;border-color:olive;}
+.table_color_2 td.bk_4 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11071.png");background-position:80px -20px;border-color:fuchsia ;}
+.table_color_2 td.bk_5 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11086.png");background-position:65px -20px; border-color:maroon;}
+
+/* 블럭 색*/
+.table_color_3 td.bk_ div{border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:#FFF; }
+.table_color_3 td.bk_0 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10012.png");background-position:77px -12px; border-color:red;}
+.table_color_3 td.bk_1 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10004.png"); background-position:77px -10px;border-color:blue ;}
+.table_color_3 td.bk_2 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11059.png");background-position:80px -10px;border-color:teal ;}
+.table_color_3 td.bk_3 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11061.png");background-position:80px -20px;border-color:olive;}
+.table_color_3 td.bk_4 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/10046.png");background-position:75px -30px;border-color:fuchsia ;}
+.table_color_3 td.bk_5 div{ background-image:url("http://img.gundam.netmarble.net/img/unitinfo/unit/11002.png");background-position:80px -15px; border-color:maroon;}

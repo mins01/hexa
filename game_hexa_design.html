@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+/*
+공대여자, mins01.com
+제작 : 2013-04-14
+수정 : 
+임의사용 금지!
+*/
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>헥사(HEXA)</title>
+<meta name="viewport" content="width=400, initial-scale=1.0 , minimum-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="../../js/_M.all/_M.all.js"></script>
+<link rel="stylesheet" type="text/css" href="game_hexa.css"/>
+<!--
+<link rel="stylesheet" type="text/css" href="game_hexa_gundam.css"/>
+<link rel="stylesheet" type="text/css" href="game_hexa_number.css"/>
+-->
+<link rel="stylesheet" type="text/css" href="game_hexa_loadsign.css"/>
+</head>
+
+<body>
+<h2 style="text-align:center; padding:0; margin:0;">헥사,HEXA 디자인</h2>
+
+
+<input type="button" onclick="document.getElementById('effsd').play()" value="play" />
+<input type="button" onclick="document.getElementById('effsd').stop()" value="stop" />
+<div id="" class="table_color_0" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ bk_5"><div></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="" class="table_color_1" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ bk_5"><div></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="" class="table_color_2" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ bk_5"><div></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="" class="table_color_3" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ bk_5"><div></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<div id="" class="table_color_" >
+	<div class="div_board_6" style="margin:2px; position:relative; margin:0 auto;">
+	<div class="div_board div_board_6 ">
+		<div class="div_board_6" style=" overflow:hidden;">
+		<table id="table_board" border="0" cellpadding="0" cellspacing="0" class="blocks board ">
+			<tr class="table_color_0">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_0">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_1">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_1">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_2">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_2">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_3">
+				<td class="bk_ bk_0"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_1"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_2"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+			<tr class="table_color_3">
+				<td class="bk_ bk_3"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_4"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+				<td class="bk_ bk_5"><div></div></td>
+				<td class="bk_ ">=<input type="text" class="txt_score" readonly="readonly" value="0"/></td>
+			</tr>
+
+		</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<div class="div_board_6" style="margin:0 auto;">
+<fieldset>
+	<legend>결과</legend>
+	<table width="100%">
+		<tr>
+			<th>닉네임</th>
+			<td><input name="nick" type="text" size="5" /></td>
+		</tr>
+		<tr>
+			<th>점수</th>
+			<td><input name="nick" type="text" size="5" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="button" value="점수남기기" /> <input type="button" value="닫기" /> </td>
+		</tr>
+	</table>
+</fieldset>
+</div>
+
+<div style="text-align:center; font-size:12px;">좌+우:이동, 상:변경, 하:내리기, 스페이스:시작</div>
+<div id="div_control" style="" >	
+<div style="text-align:center;">
+
+
+</div>
+
+
+
+</body>
+</html>

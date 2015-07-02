@@ -1,0 +1,31 @@
+/* CSS Document */
+/*
+공대여자, mins01.com
+제작 : 2013-04-26
+수정 : 
+임의사용 금지!
+*/
+/*
+대한민국의 교통표지
+http://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EA%B5%90%ED%86%B5%ED%91%9C%EC%A7%80
+*/
+
+.blocks td.bk_ div{ background-image:url("img/blocks_loadsign.png");border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:transparent; background-position:0px 0px;}
+.blocks td.bk_0 div{border-color:red;  background-position-x:0px; }
+.blocks td.bk_1 div{border-color:blue ;  background-position-x:-40px; }
+.blocks td.bk_2 div{border-color:teal ;  background-position-x:-80px; }
+.blocks td.bk_3 div{border-color:olive;  background-position-x:-120px; }
+.blocks td.bk_4 div{border-color:fuchsia ;  background-position-x:-160px; }
+.blocks td.bk_5 div{border-color:maroon;  background-position-x:-200px; }
+
+/* 블럭 색*/
+.table_color_0 td.bk_ div{ background-position-y:0px;}
+
+/* 블럭 색*/
+.table_color_1 td.bk_ div{ background-position-y:-40px;}
+
+/* 블럭 색*/
+.table_color_2 td.bk_ div{ background-position-y:-80px;}
+
+/* 블럭 색*/
+.table_color_3 td.bk_ div{ background-position-y:-120px;}

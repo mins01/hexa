@@ -1,0 +1,31 @@
+/* CSS Document */
+/*
+공대여자, mins01.com
+제작 : 2013-04-14
+수정 : 
+임의사용 금지!
+*/
+/*
+건담 이미지용
+이미지 출처 : http://gundam.netmarble.net/
+*/
+
+.blocks td.bk_ div{ background-image:url("img/blocks_number.png");border:1px outset #FFF; width:36px; height:36px; margin:1px; background-color:#FFF; background-position:0px 0px;}
+.blocks td.bk_0 div{border-color:red;  background-position-x:0px; }
+.blocks td.bk_1 div{border-color:blue ;  background-position-x:-40px; }
+.blocks td.bk_2 div{border-color:teal ;  background-position-x:-80px; }
+.blocks td.bk_3 div{border-color:olive;  background-position-x:-120px; }
+.blocks td.bk_4 div{border-color:fuchsia ;  background-position-x:-160px; }
+.blocks td.bk_5 div{border-color:maroon;  background-position-x:-200px; }
+
+/* 블럭 색*/
+.table_color_0 td.bk_ div{ background-position-y:0px;}
+
+/* 블럭 색*/
+.table_color_1 td.bk_ div{ background-position-y:-40px;}
+
+/* 블럭 색*/
+.table_color_2 td.bk_ div{ background-position-y:-80px;}
+
+/* 블럭 색*/
+.table_color_3 td.bk_ div{ background-position-y:-120px;}

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* CSS Document */
+/*
+공대여자, mins01.com
+제작 : 2018-09-21
+수정 : 
+임의사용 금지!
+*/
+/*
+이모지용
+*/
+.blocks td.bk_ div{border:1px solid #FFF; width:36px; height:36px; margin:1px; background-color:#fff; position: relative;}
+.blocks td.bk_0 div{border-color:red;}
+.blocks td.bk_1 div{border-color:blue;}
+.blocks td.bk_2 div{border-color:teal;}
+.blocks td.bk_3 div{border-color:olive;}
+.blocks td.bk_4 div{border-color:fuchsia ;}
+.blocks td.bk_5 div{border-color:maroon;}
+
+td.bk_ div::before{ position: absolute;top:0;left: 0;right:0;bottom: 0;font-size:36px; line-height: 1em; text-align: center;overflow: hidden;}
+/* 블럭 색*/
+.table_color_0 td.bk_0 div::before{content: "😀";}
+.table_color_0 td.bk_1 div::before{content: "😎";}
+.table_color_0 td.bk_2 div::before{content: "☹️";}
+.table_color_0 td.bk_3 div::before{content: "😷";}
+.table_color_0 td.bk_4 div::before{content: "😜";}
+.table_color_0 td.bk_5 div::before{content: "😇";}
+/* 블럭 색*/
+.table_color_1 td.bk_0 div::before{content: "🚂";}
+.table_color_1 td.bk_1 div::before{content: "🚌";}
+.table_color_1 td.bk_2 div::before{content: "🚕";}
+.table_color_1 td.bk_3 div::before{content: "🚲";}
+.table_color_1 td.bk_4 div::before{content: "✈️";}
+.table_color_1 td.bk_5 div::before{content: "⛵";}
+/* 블럭 색*/
+.table_color_2 td.bk_0 div::before{content: "☀️";}
+.table_color_2 td.bk_1 div::before{content: "☃️";}
+.table_color_2 td.bk_2 div::before{content: "🔥";}
+.table_color_2 td.bk_3 div::before{content: "🌊";}
+.table_color_2 td.bk_4 div::before{content: "☁️";}
+.table_color_2 td.bk_5 div::before{content: "🌈";}
+/* 블럭 색*/
+.table_color_3 td.bk_0 div::before{content: "🚫";}
+.table_color_3 td.bk_1 div::before{content: "🚳";}
+.table_color_3 td.bk_2 div::before{content: "🚭";}
+.table_color_3 td.bk_3 div::before{content: "🚯";}
+.table_color_3 td.bk_4 div::before{content: "🚷";}
+.table_color_3 td.bk_5 div::before{content: "🔞";}

@@ -68,6 +68,8 @@ function page_gundam(){
 			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_gundam.css"/>');
 		}else if(Ps.css=='number'){
 			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_number.css"/>');
+		}else if(Ps.css=='emoji'){
+			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_emoji.css"/>');
 		}else if(Ps.css=='loadsign'){
 			document.writeln('<link rel="stylesheet" type="text/css" href="game_hexa_loadsign.css"/>');
 		}
@@ -146,7 +148,8 @@ function shotK(){
 		<input  type="button" onclick="gh.gameOver()" class="btn" value="종료" />
 		<select name="css" onchange="this.form.submit();"  class="btn" style="width:40px;" >
 			<option value="">일반</option>
-			<option value="gundam">건담</option>
+			<!-- <option value="gundam">건담</option> -->
+			<option value="emoji">EMOJI</option>
 			<option value="number">숫자</option>
 <!--			<option value="loadsign">교통표지판</option> -->
 			
